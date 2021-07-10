@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Restoloka</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"           
+      content="Restoloka. A restaurant web application
+               which provide the best nearest restaurant
+               around you.">
+    <meta name="theme-color" content="#362417"/>
+    <link rel="stylesheet preconnect" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" crossorigin="anonymous">
+    <link rel="shortcut icon" href="src/public/icons/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="src/public/icons/icon-192.png">
+    <link rel="manifest" href="manifest.json">
+  </head>
+  <body>
+    <a href="#maincontent" class="skip-link">Skip to Content</a>
+    <header class="header">
+      <div class="header__content">
+        <a href="/" aria-label="Restoloka" class="header__brand">
+          <h1 class="header__logo">Restoloka</h1>
+        </a>
+        <button id="hamburger" aria-label="hamburger-button" aria-expanded="false">☰</button>
+        <nav id="drawer" class="nav">
+          <button id="drawer__close" aria-label="close menu">></button>
+          <ul class="nav__list">
+            <li class="nav__item"><a href="/">Home</a></li>
+            <li class="nav__item"><a href="#/favorites">Favorites</a></li>
+            <li class="nav__item">
+              <a 
+                href="https://github.com/sadumb" 
+                target="_blank" 
+                rel="noopener noreferrer">About Us
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    
+    <main id="maincontent">
+      <section class="main__container">
+        <h2 id="main__title">Explore Restaurant</h2>
+        <div class="resto" id="root-content">
+          <div class="resto__wrapper">
+           <!-- render-->
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__container">
+        <p class="footer__copyright">Copyright &COPY; 2021 - Restoloka</p>
+      </div>
+    </footer>
+
+  </body>
+</html>
