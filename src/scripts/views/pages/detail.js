@@ -2,8 +2,9 @@
 import UrlParser from '../../routes/url-parser';
 import RestaurantSource from '../../data/restaurant-source';
 import ReviewInitiator from '../../utils/review-initiator';
-import FavoriteButtonInitiator from '../../utils/favorite-button-initiator';
+import FavoriteButtonPresenter from '../../utils/favorite-button-presenter';
 import { createRestaurantDetail, createLoader } from '../templates/templates-creator';
+import FavoriteResto from '../../data/favoriteResto-idb';
 
 const Detail = {
   async render() {
@@ -36,8 +37,9 @@ const Detail = {
       form: document.querySelector('#review__form'),
     });
 
-    FavoriteButtonInitiator.init({
+    FavoriteButtonPresenter.init({
       favoriteButtonContainer: document.querySelector('#favoriteButtonContainer'),
+      favoriteRestaurant: FavoriteResto,
       restaurant: {
         id: restaurant.id,
         pictureId: restaurant.pictureId,

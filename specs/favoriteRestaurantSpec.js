@@ -1,5 +1,5 @@
-import FavoriteButtonInitiator from '../src/scripts/utils/favorite-button-initiator';
 import FavoriteResto from '../src/scripts/data/favoriteResto-idb';
+import * as TestFactories from './helpers/testFactories';
 
 describe('Favoriting a restaurant', () => {
   const addFavoriteButtonContainer = () => {
@@ -11,36 +11,21 @@ describe('Favoriting a restaurant', () => {
   });
 
   it('should show the favorite button when the restaurant has not been favorited before', async () => {
-    await FavoriteButtonInitiator.init({
-      favoriteButtonContainer: document.querySelector('#favoriteButtonContainer'),
-      restaurant: {
-        id: 1,
-      },
-    });
+    await TestFactories.createFavoriteButtonPresenterWithRestaurant({ id: 1 });
 
     expect(document.querySelector('[aria-label="favorite this restaurant"]')).toBeTruthy();
     const a = document.querySelector('[aria-label="favorite this restaurant"]');
   });
 
   it('should not show the favorite button when the restaurant has not been favorited before', async () => {
-    await FavoriteButtonInitiator.init({
-      favoriteButtonContainer: document.querySelector('#favoriteButtonContainer'),
-      restaurant: {
-        id: 1,
-      },
-    });
+    await TestFactories.createFavoriteButtonPresenterWithRestaurant({ id: 1 });
 
     expect(document.querySelector('[aria-label="unfavorite this restaurant"]'))
       .toBeFalsy();
   });
 
   it('should be able to favorite the restaurant', async () => {
-    await FavoriteButtonInitiator.init({
-      favoriteButtonContainer: document.querySelector('#favoriteButtonContainer'),
-      restaurant: {
-        id: 1,
-      },
-    });
+    await TestFactories.createFavoriteButtonPresenterWithRestaurant({ id: 1 });
 
     document.querySelector('#favoriteButton').dispatchEvent(new Event('click'));
     const restaurant = await FavoriteResto.getRestaurant(1);
@@ -51,12 +36,7 @@ describe('Favoriting a restaurant', () => {
   });
 
   it('should not add a restaurant again when its already favorited', async () => {
-    await FavoriteButtonInitiator.init({
-      favoriteButtonContainer: document.querySelector('#favoriteButtonContainer'),
-      restaurant: {
-        id: 1,
-      },
-    });
+    await TestFactories.createFavoriteButtonPresenterWithRestaurant({ id: 1 });
 
     // Tambahkan resto dengan ID 1 ke daftar restoran yang disukai
     await FavoriteResto.putRestaurant({ id: 1 });
@@ -69,14 +49,11 @@ describe('Favoriting a restaurant', () => {
   });
 
   // menggunakan metode xit, bukan it
-  xit('should not favorite a restaurant when it has no id', async () => {
-    await FavoriteButtonInitiator.init({
-      favoriteButtonContainer: document.querySelector('#favoriteButtonContainer'),
-      restaurant: {},
-    });
+  it('should not favorite a restaurant when it has no id', async () => {
+    await TestFactories.createFavoriteButtonPresenterWithRestaurant({});
 
     document.querySelector('#favoriteButton').dispatchEvent(new Event('click'));
 
-    expect(await FavoriteMovieIdb.getAllMovies()).toEqual([]);
+    expect(await FavoriteResto.getAllRestaurants()).toEqual([]);
   });
 });
