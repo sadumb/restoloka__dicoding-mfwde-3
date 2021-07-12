@@ -34,6 +34,11 @@
         font-size: 1rem;
     }
 
+    /* hero */
+    .hero {
+        background-image: url('../public/images/heros/hero-image_2.jpg');
+    }
+
     /* content */
     .resto__wrapper {
         grid-template-columns: 1fr 1fr;   

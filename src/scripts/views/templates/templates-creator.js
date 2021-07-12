@@ -7,7 +7,7 @@ const createRestaurantList = (restaurant) => `
         <img
         src="${CONFIG.BASE_IMAGE_URL}/${restaurant.pictureId}""
         alt="${restaurant.name}"
-        class="resto__image"
+        class="resto__image lazyload"
         />
       </figure>
       <div class="resto__content">
@@ -66,7 +66,7 @@ const createRestaurantDetail = (restaurant) => `
           <img
           src="${CONFIG.BASE_IMAGE_URL}/${restaurant.pictureId}"
           alt="${restaurant.name}" 
-          class="restoDetail__img"
+          class="restoDetail__img lazyload"
           />
         </figure>
       </div>

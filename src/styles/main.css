@@ -134,7 +134,7 @@ main {
     position: relative;
     padding: 110px 0 100px;
     align-items: center;
-    background-image: url('../public/images/heros/hero-image_2.jpg');
+    background-image: url('../public/images/heros/hero-image_2_mobile.jpg');
     background-position: center;
     background-size: cover;
     min-height: 450px;
