@@ -9,6 +9,7 @@
     --white: #fffbff;
     --dutch-white: #F1DABF;
     --orange : #f9b208;
+    --light-grey: #d3d3d3;
 }
 
 * {
@@ -241,6 +242,56 @@ main {
   }
 }
   
+/* skeleton */
+.resto__item--skeleton{
+  background-color: #e2e2e2;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+}
+.resto__item--skeleton::after{
+  content: '';
+  position: absolute;
+  width: 200px;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: skew(-32deg);
+  top: 0;
+  left: -100%;
+  animation: skeletonAnimation 1s infinite ease-in-out;
+}
+.resto__item--skeleton .resto__image{
+  background-color: var(--light-grey);  
+  height: 200px;
+}
+.resto__item--skeleton .resto__content{
+  height: 100px;
+  background-color: var(--white);
+  margin: 10px 0;
+}
+
+.resto__item--skeleton .resto__heading{
+  height: 39px;
+  margin: 0 15px 10px 15px;
+  background-color: var(--light-grey);
+  width: 50%;
+  text-align: left;
+}
+
+.resto__item--skeleton .resto__info{
+  background-color: var(--light-grey);
+  height: 67px;
+  margin: 0 15px 0 15px;
+}
+
+@keyframes skeletonAnimation {
+  0%{
+    left: -100%;
+  }
+  100%{
+    left: 200%;
+  }
+}
 
 /* main */
 

@@ -1,5 +1,5 @@
 import RestaurantSource from '../../data/restaurant-source';
-import { createRestaurantList, createLoader } from '../templates/templates-creator';
+import { createRestaurantList, createSkeletonInterfaceCard } from '../templates/templates-creator';
 
 const Home = {
   async render() {
@@ -28,10 +28,9 @@ const Home = {
   async afterRender() {
     // Fungsi ini akan dipanggil setelah render()
     const restoWrapper = document.querySelector('.resto__wrapper');
-    const loaderContainer = document.querySelector('#loader-container');
-    loaderContainer.innerHTML = createLoader();
+    restoWrapper.innerHTML = createSkeletonInterfaceCard();
     const restaurants = await RestaurantSource.restaurantList();
-    loaderContainer.innerHTML = '';
+    restoWrapper.innerHTML = '';
     restaurants.forEach((restaurant) => {
       restoWrapper.innerHTML += createRestaurantList(restaurant);
     });

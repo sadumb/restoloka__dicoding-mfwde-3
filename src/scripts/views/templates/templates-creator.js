@@ -13,7 +13,7 @@ const createRestaurantList = (restaurant) => `
       <div class="resto__content">
         <div class="resto__heading">
             <h2 class="resto__location">
-            <span><i class="fas fa-map-marker-alt"></i></span>
+            <span><i class="fa fa-map-marker" aria-hidden="true"></i></span>
             <span>${restaurant.city}</span>
             </h2>
             <h2 class="resto__star">
@@ -31,6 +31,37 @@ const createRestaurantList = (restaurant) => `
     </a>
   </article>
   `;
+
+const createSkeletonInterfaceCard = () => {
+  let skeletonCards = '';
+  for (let i = 0; i < 20; i++) {
+    skeletonCards += `
+    <article class="resto__item resto__item--skeleton">
+        <figure class="resto__image--wrapper">
+          <div class="resto__image"></div>
+        </figure>
+        <div class="resto__content">
+          <div class="resto__heading">
+              <h2 class="resto__location">
+              <span></span>
+              <span></span>
+              </h2>
+              <h2 class="resto__star">
+              <span></span>
+              <span></span>
+              </h2>
+          </div>
+          <div class="resto__info">
+            <h2 class="resto__name">
+            </h2>
+              <p class="resto__description"></p>
+          </div>
+        </div>
+    </article>
+    `;
+  }
+  return skeletonCards;
+};
 
 const makeList = (list) => {
   let items = '';
@@ -51,7 +82,7 @@ const createRestaurantDetail = (restaurant) => `
       <div class="restoDetail__identity">
         <h2 class="restoDetail__address">${restaurant.address}</h2>
         <h3>
-          <span><i class="fas fa-map-marker-alt"></i></span>
+          <span><i class="fa fa-map-marker" aria-hidden="true"></i></span>
           <span>${restaurant.city}</span>
         </h3>
         <h3>
@@ -133,4 +164,5 @@ export {
   createRestaurantDetail,
   createFavoriteButtonTemplate,
   createUnfavoriteButtonTemplate,
+  createSkeletonInterfaceCard,
 };
