@@ -4,7 +4,7 @@ Feature('Review A Restaurant');
 Scenario('Add Review for first restaurant in list', async ({ I }) => {
   const name = 'E2E Automation Test';
   const review = 'Hello! I am codecept E2E.';
-!
+
   I.amOnPage('/');
   I.seeElement('.resto__item');
   I.click(locate('.resto__item a').first());

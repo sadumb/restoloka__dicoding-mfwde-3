@@ -1,3 +1,4 @@
+/* eslint-disable no-plusplus */
 import CONFIG from '../../globals/config';
 
 const createRestaurantList = (restaurant) => `

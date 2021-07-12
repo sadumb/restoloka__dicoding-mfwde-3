@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
 import FavoriteResto from '../src/scripts/data/favoriteResto-idb';
 import * as TestFactories from './helpers/testFactories';
 
