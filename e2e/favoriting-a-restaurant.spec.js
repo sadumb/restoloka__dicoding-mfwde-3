@@ -28,3 +28,22 @@ Scenario('showing empty favorited restaurant', async ({ I }) => {
 
   assert.strictEqual(firstRestaurantName, likedRestaurantName);
 });
+
+Scenario('add then Remove Restaurant from Favorite restaurant list', ({ I }) => {
+  I.amOnPage('/');
+  I.seeElement('.resto__item a');
+  I.click(locate('.resto__item a').first());
+  I.seeElement('#favoriteButton');
+  I.click('#favoriteButton');
+
+  I.amOnPage('/#/favorites');
+  I.seeElement('.resto__item a');
+  I.click('.resto__item a');
+
+  I.seeElement('#favoriteButton');
+  I.click('#favoriteButton');
+
+  // check again
+  I.amOnPage('/#/favorites');
+  I.see('Oops, no restaurant added yet.', '#no-favorite');
+});

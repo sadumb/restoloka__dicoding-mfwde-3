@@ -5,8 +5,8 @@ const createRestaurantList = (restaurant) => `
   <article class="resto__item">
     <a href="#/detail/${restaurant.id}" aria-label="${restaurant.name}">
       <figure class="resto__image--wrapper">
-        <img
-        src="${CONFIG.BASE_IMAGE_URL}/${restaurant.pictureId}""
+        <img 
+        data-src="${CONFIG.BASE_IMAGE_URL}/${restaurant.pictureId}"
         alt="${restaurant.name}"
         class="resto__image lazyload"
         />
@@ -95,7 +95,7 @@ const createRestaurantDetail = (restaurant) => `
     <div class="restoDetail__content">
       <div class="restoDetail__wrapper">
         <figure>
-          <img
+          <img 
           src="${CONFIG.BASE_IMAGE_URL}/${restaurant.pictureId}"
           alt="${restaurant.name}" 
           class="restoDetail__img lazyload"
